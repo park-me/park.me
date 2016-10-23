@@ -44,6 +44,7 @@ export function create(req, res, next) {
         expiresIn: 60 * 60 * 5
       });
       res.json({ token });
+      return null;
     })
     .catch(validationError(res));
 }
@@ -111,6 +112,7 @@ export function me(req, res, next) {
         return res.status(401).end();
       }
       res.json(user);
+      return null;
     })
     .catch(err => next(err));
 }
